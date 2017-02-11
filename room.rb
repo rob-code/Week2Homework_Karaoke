@@ -12,35 +12,37 @@ class Room
     @number_of_guests_in_room = 0
   end
 
-def add_person_to_room(name)
+  def add_person_to_room(name)
     @names_of_guests_in_room.push(name)
-end
+  end
 
-def remove_person_from_room(name)
+  def remove_person_from_room(name)
     @names_of_guests_in_room.delete(name)
-end
+  end
 
-def is_room_full?
+  def is_room_full?
     @names_of_guests_in_room.count >= @max_people_allowed_in_room ? true : false
-end
+  end
 
-def add_favourite_song_if_person_has_one(name)
+  def add_favourite_song_if_person_has_one(name)
     @guests_favourite_songs.push(name)
-end
+  end
 
-def remove_favourite_song_when_person_leaves(name)
+  def remove_favourite_song_when_person_leaves(name)
     # dont want to delete all entries of a song, just one
     # guests in the room might share the same fave song
     @guests_favourite_songs.slice!((@guests_favourite_songs.index(name)))
-end
+  end
 
-def build_current_combined_song_list
-    @current_combined_song_list = @default_song_list.concat(@guests_favourite_songs)
-end
+  def build_current_combined_song_list
+    # Dont use concat as it adds the faves to the default song list!
+    # so each time we run this we add duplicates of guests faves
+    @current_combined_song_list = @default_song_list + @guests_favourite_songs
+  end
 
-def get_current_combined_song_list
+  def get_current_combined_song_list
     @current_combined_song_list
-end
+  end
 
 
 
