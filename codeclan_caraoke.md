@@ -21,9 +21,3 @@ Your program should be test driven and should be able to:
 - Rooms can keep track of the entry fees/spending of the guests - maybe add a bar tab/bar class?
 - Add anything extra you think would be good to have at a karaoke venue!
 
-
-
-
-My_Notes:
-Store the songs, rooms etc in hashes. Once they are in there we can work with them in the relvant classes
-
