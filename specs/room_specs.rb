@@ -74,13 +74,13 @@ class TestRoom < MiniTest::Test
     @room1.add_favourite_song_if_person_has_one("Paradise")
     @room1.add_favourite_song_if_person_has_one("Jailhouse Rock")
     @room1.build_current_combined_song_list
+    @room1.build_current_combined_song_list
+    @room1.build_current_combined_song_list
     assert_equal(true, @room1.get_current_combined_song_list.include?("Paradise"))
     assert_equal(true, @room1.get_current_combined_song_list.include?("Jailhouse Rock"))
 
     assert_equal(true, @room1.get_current_combined_song_list.include?("Stand By Me"))
     puts @room1.get_current_combined_song_list
   end
-
-
 
 end
