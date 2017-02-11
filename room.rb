@@ -13,7 +13,13 @@ class Room
   end
 
   def add_person_to_room(name)
-    @names_of_guests_in_room.push(name)
+    if !is_room_full?
+        @names_of_guests_in_room.push(name)        
+    else     
+        puts "Room #{@room_id} is currently occupied by #{@max_people_allowed_in_room} guests and is full. Please try booking the guest into another room or try again later.\n"
+        puts "The guests currently in Room #{@room_id} are:"
+        self.names_of_guests_in_room.each {|guest| puts guest}
+    end
   end
 
   def remove_person_from_room(name)
