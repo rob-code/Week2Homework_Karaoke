@@ -1,6 +1,6 @@
 class Room
 
-  attr_reader :room_id, :max_people_allowed_in_room, :default_song_list, :names_of_guests_in_room
+  attr_reader :room_id, :max_people_allowed_in_room, :default_song_list, :names_of_guests_in_room, :guests_favourite_songs, :current_combined_song_list
 
   def initialize(room_id, max_people_allowed_in_room, default_song_list)
     @room_id = room_id
@@ -8,6 +8,7 @@ class Room
     @default_song_list = default_song_list
     @names_of_guests_in_room = []
     @guests_favourite_songs = []
+    @current_combined_song_list = []
     @number_of_guests_in_room = 0
   end
 
@@ -23,10 +24,24 @@ def is_room_full?
     @names_of_guests_in_room.count >= @max_people_allowed_in_room ? true : false
 end
 
-# def add_favourite_song_if_person_has_one
-# end
+def add_favourite_song_if_person_has_one(name)
+    @guests_favourite_songs.push(name)
+end
 
-# def remove_favourite_song_when_person_leaves
-# end
+def remove_favourite_song_when_person_leaves(name)
+    # dont want to delete all entries of a song, just one
+    # guests in the room might share the same fave song
+    @guests_favourite_songs.slice!((@guests_favourite_songs.index(name)))
+end
+
+def build_current_combined_song_list
+    @current_combined_song_list = @default_song_list.concat(@guests_favourite_songs)
+end
+
+def get_current_combined_song_list
+    @current_combined_song_list
+end
+
+
 
 end
