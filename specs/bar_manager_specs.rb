@@ -64,7 +64,8 @@ def test_get_current_song_list_for_room
     "Dancing Queen",
     "My Way",
     "Here Comes The Sun",
-    "Hey Jude", "Imagine",
+    "Hey Jude", 
+    "Imagine",
     "Back in the USSR"], 
     @bar_manager.get_current_song_list_for_room(1))
 end

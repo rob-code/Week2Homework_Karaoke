@@ -1,4 +1,6 @@
 
+Most of the responsibilities seem to be devolved to the room with the manager merely checking people in and out and interrogating the the various status indicators of the rooms. This would be a good candidate for a room dashboard showing in one view the value of all the values for each room.
+
 Store the songs, rooms etc in hashes. Once they are in there we can work with them in the relvant classes
 
 
