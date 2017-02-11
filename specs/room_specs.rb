@@ -52,10 +52,33 @@ class TestRoom < MiniTest::Test
     @room1.add_person_to_room("Jane")
     @room1.add_person_to_room("Ronnie")
     @room1.add_person_to_room("Dilly")
-    #@room1.add_person_to_room("Karen")
+    @room1.add_person_to_room("Karen")
     # @room1.add_person_to_room("Robert")
-
     assert_equal(true, @room1.is_room_full?)
+  end
+
+  def test_add_favourite_song_if_person_has_one
+    @room1.add_favourite_song_if_person_has_one("bee bop aloola")
+    assert_equal(true, @room1.guests_favourite_songs.include?("bee bop aloola"))
+  end
+
+  def test_remove_favourite_song_when_person_leaves
+    @room1.add_favourite_song_if_person_has_one("bee bop aloola")
+    @room1.add_favourite_song_if_person_has_one("bee bop aloola")    
+    @room1.add_favourite_song_if_person_has_one("bee bop aloola")
+    @room1.remove_favourite_song_when_person_leaves("bee bop aloola")
+    assert_equal(true, @room1.guests_favourite_songs.include?("bee bop aloola"))
+  end
+  
+  def test_get_current_combined_song_list
+    @room1.add_favourite_song_if_person_has_one("Paradise")
+    @room1.add_favourite_song_if_person_has_one("Jailhouse Rock")
+    @room1.build_current_combined_song_list
+    assert_equal(true, @room1.get_current_combined_song_list.include?("Paradise"))
+    assert_equal(true, @room1.get_current_combined_song_list.include?("Jailhouse Rock"))
+
+    assert_equal(true, @room1.get_current_combined_song_list.include?("Stand By Me"))
+    puts @room1.get_current_combined_song_list
   end
 
 
