@@ -1,0 +1,6 @@
+Lessons
+
+When making a class that's required by another, make sure I pass the method that returns what I want rather than passing the object itself to the other class.
+
+I was looking for the array of the default song list and I was passing a room object the default song list class. Wrong! I just want the list of default songs contained in the default song list object
+
