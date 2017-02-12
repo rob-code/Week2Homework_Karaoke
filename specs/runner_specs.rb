@@ -1,6 +1,6 @@
 require( 'minitest/autorun' )
 require( 'minitest/rg' )
-require_relative( '../song.rb' )
+#require_relative( '../song.rb' )
 require_relative( '../room.rb' )
 require_relative( '../guest.rb' )
 require_relative('../default_song_list.rb')
@@ -21,7 +21,7 @@ def setup()
   @guest2 = Guest.new("Paul", 2, 5, "Hey Jude")
   @guest3 = Guest.new("John", 3, 5, "Imagine")
   @guest4 = Guest.new("Ringo", 4, 5, "Back in the USSR")
-  @guest5 = Guest.new("Bert", 4, 5, "Hey Hey Hey")
+  @guest5 = Guest.new("Bert", 4, 5, "Saturday Night Fever")
   @guest6 = Guest.new("Ritchie", 3, 5, "Smoke on the Water")
 
   rooms_available = [@room1, @room2, @room3, @room4]
@@ -41,10 +41,45 @@ def test_check_in_guests_in_reception
   assert_equal(["Ringo", "Bert"], @room4.names_of_guests_in_room)
 end
 
-def test_print_karaoke_bar_dashboard
-  @runner.check_in_guests_in_reception
-  @runner.print_karaoke_bar_dashboard
-end
+# def test_print_karaoke_bar_dashboard
+#   @runner.check_in_guests_in_reception
+#   @runner.print_karaoke_bar_dashboard
+# end
 
+# def test_book_in_new_guest
+#   @runner.check_in_guests_in_reception
+#   @guest7 = Guest.new("Gloria", 2, 5, "I Will Survive")
+#   @runner.book_in_new_guest(@guest7)
+#   @runner.print_karaoke_bar_dashboard
+# end
+
+def test_check_out_guest
+  @runner.check_in_guests_in_reception
+  puts "Here's the starting dashboard populated by runner_specs.rb:"
+  @runner.print_karaoke_bar_dashboard
+  @guest7 = Guest.new("Gloria", 3, 5, "I Will Survive")
+  @runner.book_in_new_guest(@guest7)
+  @guest8 = Guest.new("Elvis", 2, 5, "Jailhouse Rock")
+  @runner.book_in_new_guest(@guest8)
+  @guest9 = Guest.new("Slash", 4, 5, "Sweet Child Of Mine")
+  @runner.book_in_new_guest(@guest9)
+  @guest10 = Guest.new("Jimmy", 2, 5, "Whole Lotta Love")
+  @runner.book_in_new_guest(@guest10)
+ @guest11 = Guest.new("Whitney", 2, 5, "The Greatest Love")
+ @runner.book_in_new_guest(@guest11)
+ @guest12 = Guest.new("Dusty", 2, 5, "Son of a Preacher Man")
+ @runner.book_in_new_guest(@guest12)
+ @guest13 = Guest.new("Adele", 2, 5, "Hello")
+ @runner.book_in_new_guest(@guest13)
+  @runner.print_karaoke_bar_dashboard
+
+  @runner.check_out_guest(@guest4)
+  @runner.check_out_guest(@guest11)
+  @runner.check_out_guest(@guest8)
+  @runner.print_karaoke_bar_dashboard
+
+
+
+end
 
 end

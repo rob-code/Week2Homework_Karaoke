@@ -35,7 +35,9 @@ class Room
   end
 
   def add_favourite_song_if_person_has_one(name)
-    @guests_favourite_songs.push(name)
+    if !is_room_full? 
+      @guests_favourite_songs.push(name)
+    end
   end
 
   def remove_favourite_song_when_person_leaves(name)
