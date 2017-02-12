@@ -1,5 +1,7 @@
 class BarManager
 
+attr_reader :number_of_rooms_in_bar, :rooms_available
+
   def initialize(rooms_available)
     @rooms_available = rooms_available
     @number_of_rooms_in_bar = @rooms_available.length

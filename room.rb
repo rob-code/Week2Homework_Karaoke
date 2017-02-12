@@ -30,6 +30,10 @@ class Room
     @names_of_guests_in_room.count >= @max_people_allowed_in_room ? true : false
   end
 
+  def get_number_of_guests_in_room
+    @number_of_guests_in_room = @names_of_guests_in_room.count
+  end
+
   def add_favourite_song_if_person_has_one(name)
     @guests_favourite_songs.push(name)
   end
