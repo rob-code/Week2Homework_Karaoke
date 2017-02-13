@@ -3,5 +3,16 @@ Most of the responsibilities seem to be devolved to the room with the manager me
 
 Store the songs, rooms etc in hashes. Once they are in there we can work with them in the relvant classes
 
-
 When making a class that's required by another, make sure I pass the method that returns what I want rather than passing the object itself to the other class. I was looking for the array of the default song list and I was passing a room object the default song list class. Wrong! I just want the list of default songs...accessible using the method.
+
+Observations and Questions
+
+- Getting the right architecture is so important ... with that correctly in place the programme, its extensibility, maintainabillity, debugging, code readability...all become more straightforward.
+
+Definitely with the benefit of hindsight could have made this better:
+- should store the guest data in the room in a hash rather than 2 arrays
+- should I make the tasks focus on one action at a time or is it OK to aggregate actions... I guess it depends on the requirements and what we need to get access to.
+- I probably should have added the person and the song and any other guest data to the room in the same function call; hence the data should have been transferred into a hash rather than an array.
+- work with shorter variable names!
+
+
